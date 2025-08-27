@@ -1,0 +1,35 @@
+[author]
+	name = "John Reed"
+
+[commit]
+	gpgSign = true
+
+[credential]
+	helper = "store"
+
+[gpg]
+	format = "ssh"
+
+[gpg "openpgp"]
+	program = "gpg"
+
+[init]
+	defaultBranch = "main"
+
+[sendemail]
+	smtpEncryption = "tls"
+	smtpServer = "smtp.gmail.com"
+	smtpServerPort = 587
+	smtpUser = "reallyjohnreed@gmail.com"
+
+[tag]
+	gpgSign = true
+
+[url "https://github.com/"]
+	insteadOf = "gh:"
+	insteadOf = "github:"
+
+[user]
+	email = reallyjohnreed@gmail.com
+	name = John Reed
+	signingKey = "/home/johndr/.ssh/id_ed25519.pub"
