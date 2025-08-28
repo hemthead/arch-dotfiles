@@ -9,6 +9,8 @@ mpv
 fastfetch
 zsh
 zsh-completions
+htop
+tmux
 
 ttf-dejavu
 ttf-dejavu-nerd

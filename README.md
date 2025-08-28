@@ -32,9 +32,16 @@ pacman configuration such as multilib (Steam as of now).
 Run `# pacman -Syu $(cat installs.txt)` to install all the packages listed; run again with
 installs.txt replaced by additional.txt if you want the additional packages as well. 
 
+At some point in this process, you'll run into packages that make you choose a dependency that works
+for your system. This config does not install those for you, I don't know your system.
+
 # Configuration
 Finally, we're sitting in a yadm repository, so it's about time we get to the config!
 
 Most of the config should just work, but my NixOS heritage compulses me to configure the system as
 well. As such, there's a .root-config directory that holds some system-level configuration, and you
 can choose to copy this over in the bootstrap (or you can set it up yourself).
+
+## Post yadm
+You'll probably want to set your themes with `gsettings` at some point. Make sure you have the right
+gpu drivers. Swapfiles, sleepmodes, hibernation, etc. none of that stuff is covered in this repo.
