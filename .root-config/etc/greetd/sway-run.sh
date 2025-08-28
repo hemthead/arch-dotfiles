@@ -4,10 +4,10 @@
 # required env vars
 
 # source, and export, env vars that are needed globally
-. /etc/greetd/linux-env
+. /etc/greetd/linux-env.sh
 
 # source, and export, env vars needed for wayland compositors
-. /etc/greetd/wayland-env
+. /etc/greetd/wayland-env.sh
 
 # export env vars needed for only for sway
 export _JAVA_AWT_WM_NONREPARENTING=1

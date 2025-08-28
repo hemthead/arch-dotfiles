@@ -1,0 +1,8 @@
+gimp
+krita
+discord
+
+obs
+qt6-wayland
+
+steam

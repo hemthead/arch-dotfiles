@@ -1,0 +1,51 @@
+[[block]]
+block = "focused_window"
+format = " $title |"
+
+[[block]]
+block = "sound"
+format = " Vol: {$volume|muted} "
+
+[[block]]
+block = "backlight"
+format = " Light: $brightness "
+missing_format = ""
+
+[[block]]
+block = "memory"
+format = " Mem: $mem_used/$mem_total Swap: $swap_used/$swap_total "
+
+[[block]]
+block = "cpu"
+format = " CPU: $utilization $barchart "
+
+[[block]]
+block = "battery"
+critical = 15
+empty_format = " Bat: Empty "
+format = " Bat: $percentage "
+full_format = " Bat: Full "
+good = 85
+info = 60
+missing_format = ""
+warning = 30
+
+[[block]]
+block = "disk_space"
+format = " Disk: $used/$total "
+info_type = "available"
+
+[[block]]
+block = "net"
+format = " $ssid $signal_strength "
+
+[[block]]
+block = "time"
+format = " $timestamp.datetime(f:'%I:%M%P — %a — %d %b %Y') "
+interval = 60
+
+[icons]
+icons = "none"
+
+[theme]
+theme = "plain"

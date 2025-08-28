@@ -8,7 +8,7 @@ I used archinstall, which was pretty easy. Installed alongside NixOS and manuall
 no trouble at all. Both distros still work. I had some issues with the bootloader, but I'm pretty
 sure that's only because my NixOS was set up to mount the boot partition differently (at /boot/efi).
 
-archinstall, would reccommend.
+archinstall, would recommend.
 
 # Programs
 My major, and only, concern switching over from NixOS was how I was gonna keep track of my packages.
@@ -17,8 +17,20 @@ package so far (official packages, I won't include AUR in this list).
 
 The goal here is that you'll be able to quickly install every package (either manually or through
 some fancy command engineering) and get a pretty decent representation of all the packages I use.
+As such, each package in this list can be installed with the default pacman configuration, none of
+them require multilib or AUR or anything like that (I'm not sure if archinstall modifies the pacman
+config, but that's my base so ymmv).
 
-I'll likely maintain a list of AUR packages as well, if/when I install some.
+Any AUR packages I install are listed in aur.txt in the same format. There's no default solution for
+easily installing these from a list, so I'll leave that as an exercise for the reader. I'm starting
+off with makepkg and likely switching to yay once I understand what's going on.
+
+Additional packages that I consider important are listed in additional.txt. These are bigger and not
+considered strictly necessary for a reproduced install. Some of the packages may require special
+pacman configuration such as multilib (Steam as of now).
+
+Run `# pacman -Syu $(cat installs.txt)` to install all the packages listed; run again with
+installs.txt replaced by additional.txt if you want the additional packages as well. 
 
 # Configuration
 Finally, we're sitting in a yadm repository, so it's about time we get to the config!

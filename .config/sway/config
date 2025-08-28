@@ -4,6 +4,11 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+font pango:monospace 8
+focus_wrapping no
+focus_follows_mouse no
+mouse_warping none
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -203,6 +208,20 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
+mode "exit: [l]ogout, [r]eboot, [s]hutdown, s[u]spend, [h]ibernate, loc[k]" {
+  bindsym Escape mode default
+  bindsym Return mode default
+  bindsym h exec systemctl hibernate; mode default
+  bindsym k exec swaylock; mode default
+  bindsym l exec swaymsg exit
+  bindsym r exec reboot
+  bindsym s exec shutdown now
+  bindsym u exec systemctl suspend; mode default
+}
+bindsym $mod+x mode "exit: [l]ogout, [r]eboot, [s]hutdown, s[u]spend, [h]ibernate, loc[k]"
+ 
+
 #
 # Utilities:
 #
@@ -223,24 +242,49 @@ bindsym $mod+r mode "resize"
     bindsym $mod+Mod1+p     exec grimshot --notify --cursor savecopy output
     bindsym $mod+Ctrl+p     exec grimshot --notify --cursor savecopy window
 
+# Graphical Customization!
+set $color0 #A020F0
+set $color1 #663399
+set $color2 #800080
+set $color3 #FFFFFF
+set $color4 #000000
+
+# colorclass    border  background  text    indicator   child_border
+client.focused  $color1 $color0     $color3 $color2     $color0
+
+gaps inner 10
+
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
+    position bottom
+
+    font pango:monospace 8
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     #status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-    status_command i3status
+    status_command i3status-rs 2> /tmp/i3status-rs.log
     #swaybar_command waybar
 
     colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        #statusline #ffffff
+        #background #000000
+        #inactive_workspace #32323200 #32323200 #5c5c5c
+        focused_workspace $color1 $color0 $color3
     }
 }
+
+# make godot windows open floating (godot likes to use many windows for menues)
+for_window [class="Godot"] floating enable
+
+exec swayidle -w \
+    timeout 600 'swaymsg "output * dpms off"' \
+        resume 'swaymsg "output * dpms on"' \
+    timeout 900 'systemctl suspend' \
+    before-sleep 'loginctl lock-session; playerctl pause' \
+    lock 'swaylock -f; sleep 1'
 
 include /etc/sway/config.d/*

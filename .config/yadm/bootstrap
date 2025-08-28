@@ -1,3 +1,9 @@
 #!/bin/sh
 
-echo "To be implemented..."
+cd "$HOME"
+
+echo "Init submodules"
+yadm submodule update --recursive --init
+
+echo "configure /etc"
+sudo cp -r ~/.root-config/etc/greetd /etc/

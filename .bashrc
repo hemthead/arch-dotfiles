@@ -54,3 +54,5 @@ function _prompt
 
 XDG_SCREENSHOTS_DIR="$HOME/Pictures/screenshots"
 XDG_PICTURES_DIR="$HOME/Pictures"
+
+fastfetch # I'm a goner, it's over

@@ -6,12 +6,15 @@ fd
 ripgrep
 xdg-user-dirs
 mpv
+fastfetch
+zsh
+zsh-completions
 
 ttf-dejavu
 ttf-dejavu-nerd
 
 sway
-i3status
+i3status-rust
 waybar
 grim
 polkit
@@ -24,6 +27,9 @@ xdg-desktop-portal-gtk
 swaybg
 wmenu
 sway-contrib
+xorg-xwayland
+swayidle
+swaylock
 
 thunar
 catfish
