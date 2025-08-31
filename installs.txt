@@ -1,5 +1,9 @@
 greetd
+grub
+os-prober
+efibootmgr
 
+man-db
 git
 neovim
 fd

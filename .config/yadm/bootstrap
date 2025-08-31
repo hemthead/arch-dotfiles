@@ -1,9 +1,46 @@
 #!/bin/sh
+echo
 
+CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME/.config"}
+
+# I call this "Not Being Lazy"
+echo "You aren't allowed to bootstrap until you've checked the file!"
+echo "Go to $CONFIG_HOME/yadm/bootstrap and verify that everything looks fine =|:)"
+echo "It's a pretty simple shell script, so you shouldn't have much trouble."
+# Can you tell what this line does?
+exit 1
+
+# Now that you're here, edit the rest of the file to your liking and make sure you're comfortable
+# with everything that's happening below.
 cd "$HOME"
 
+# You can't do this unless you're me, on account of it's my encrypted data, so I'd advise removing
+# this line
+echo "Decrypt files"
+yadm decrypt
+echo
+
+# Do you want my neovim config? (kickstart.nvim)
 echo "Init submodules"
 yadm submodule update --recursive --init
+echo
 
-echo "configure /etc"
+echo "Configure /etc:"
+
+echo "greetd"
 sudo cp -r ~/.root-config/etc/greetd /etc/
+
+echo
+
+echo "Enable Services:"
+
+echo "greetd"
+sudo systemctl enable greetd
+
+echo "setting default shell to zsh"
+chsh -s /bin/zsh
+
+echo "install oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+echo

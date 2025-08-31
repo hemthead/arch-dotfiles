@@ -1,8 +1,20 @@
 gimp
 krita
 discord
+kdeconnect
 
 obs
 qt6-wayland
 
 steam
+
+uv
+
+zig
+zls
+
+go
+gopls
+
+clang
+gdb
