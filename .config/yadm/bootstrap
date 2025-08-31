@@ -22,6 +22,18 @@ function yes_or_no {
 	done
 }
 
+# https://stackoverflow.com/questions/29436275/how-to-prompt-for-yes-or-no-in-bash
+function yes_or_no {
+	local yn
+	while true; do
+	    read -p "$* [y/n]: " yn
+		case $yn in
+			[Yy]*) return 0  ;;
+			[Nn]*) echo "Aborted" ; return  1 ;;
+		esac
+	done
+}
+
 # Now that you're here, edit the rest of the file to your liking and make sure you're comfortable
 # with everything that's happening below.
 cd "$HOME"
