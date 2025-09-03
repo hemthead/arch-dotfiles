@@ -18,16 +18,16 @@ tmux
 
 ttf-dejavu
 ttf-dejavu-nerd
+noto-fonts-emoji
 
 sway
 i3status-rust
 waybar
 grim
 polkit
-foot
 libpulse
 mako
-foot
+ghostty
 xdg-desktop-portal-wlr
 xdg-desktop-portal-gtk
 swaybg
@@ -49,3 +49,4 @@ engrampa
 firefox
 thunderbird
 oculante
+imgmagick
