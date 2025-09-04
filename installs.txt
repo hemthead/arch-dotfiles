@@ -49,4 +49,4 @@ engrampa
 firefox
 thunderbird
 oculante
-imgmagick
+imagemagick
