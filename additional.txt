@@ -18,3 +18,5 @@ gopls
 
 clang
 gdb
+
+prismlauncher
