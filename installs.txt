@@ -15,6 +15,7 @@ zsh
 zsh-completions
 htop
 tmux
+ufw
 
 ttf-dejavu
 ttf-dejavu-nerd
@@ -50,3 +51,4 @@ firefox
 thunderbird
 oculante
 imagemagick
+audacity

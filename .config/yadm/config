@@ -1,0 +1,2 @@
+[filter "uncommentExit1"]
+	clean = "sed -e 's/^\\s*##*\\s*exit\\s\\s*1\\s*$/exit 1/'"

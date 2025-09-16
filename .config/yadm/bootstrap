@@ -12,7 +12,7 @@ echo
 exit 1
 
 # https://stackoverflow.com/questions/29436275/how-to-prompt-for-yes-or-no-in-bash
-function yes_or_no {
+yes_or_no() {
 	local yn
 	while true; do
 	    read -p "$* [y/n]: " yn
@@ -47,8 +47,22 @@ echo
 echo "Services:"
 
 if yes_or_no "Enable greetd to autostart sway?"; then
-	sudo systemctl enable greetd
+	sudo systemctl enable greetd.service
 	sudo cp -r ~/.root-config/etc/greetd /etc/
+fi
+
+if yes_or_no "Enable sshd?"; then
+	sudo systemctl enable sshd.service
+fi
+
+if yes_or_no "Enable ufw with open LAN and rate-limited ssh?"; then
+	sudo systemctl enable iptables.service
+	sudo systemctl enable ufw.service
+	sudo ufw default deny
+	sudo ufw allow from 192.168.0.0/24
+	sudo ufw limit ssh
+	sudo ufw enable
+	sudo ufw status
 fi
 
 if yes_or_no "Set default shell to zsh?"; then
