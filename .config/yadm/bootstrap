@@ -55,12 +55,19 @@ if yes_or_no "Enable sshd?"; then
 	sudo systemctl enable sshd.service
 fi
 
-if yes_or_no "Enable ufw with open LAN and rate-limited ssh?"; then
+if yes_or_no "Configure ufw? (my setup, beware)"; then
 	sudo systemctl enable iptables.service
 	sudo systemctl enable ufw.service
 	sudo ufw default deny
+
+	# open lan
 	sudo ufw allow from 192.168.0.0/24
+	# ssh
 	sudo ufw limit ssh
+	# kdeconnect
+	cp -r ~/.root-config/etc/ufw/applications.d/kdeconnect /etc/ufw/applications.d/
+	sudo ufw allow kdeconnect
+
 	sudo ufw enable
 	sudo ufw status
 fi

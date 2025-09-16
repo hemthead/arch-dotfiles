@@ -15,6 +15,7 @@ zsh
 zsh-completions
 htop
 tmux
+iptables
 ufw
 
 ttf-dejavu
