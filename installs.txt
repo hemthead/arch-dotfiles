@@ -17,6 +17,7 @@ htop
 tmux
 iptables
 ufw
+hyperfine
 
 ttf-dejavu
 ttf-dejavu-nerd
