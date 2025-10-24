@@ -1,7 +1,10 @@
 gimp
 krita
-discord
 kdeconnect
+
+discord
+gajim
+gsound
 
 obs
 qt6-wayland
@@ -20,3 +23,5 @@ clang
 gdb
 
 prismlauncher
+
+strawberry

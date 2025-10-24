@@ -64,9 +64,10 @@ if yes_or_no "Configure ufw? (my setup, beware)"; then
 	sudo ufw allow from 192.168.0.0/24
 	# ssh
 	sudo ufw limit ssh
-	# kdeconnect
 	sudo cp -r ~/.root-config/etc/ufw/applications.d/kdeconnect /etc/ufw/applications.d/
 	sudo ufw allow kdeconnect
+
+	sudo cp -r ~/.root-config/etc/ufw/applications.d/teamspeak3 /etc/ufw/applications.d/
 
 	sudo ufw enable
 	sudo ufw status

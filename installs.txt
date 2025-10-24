@@ -18,9 +18,11 @@ tmux
 iptables
 ufw
 hyperfine
+gnome-keyring
+age
 
 ttf-dejavu
-ttf-dejavu-nerd
+ttf-hack-nerd
 noto-fonts-emoji
 
 sway
