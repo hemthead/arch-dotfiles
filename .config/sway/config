@@ -71,6 +71,12 @@ exec swaymsg focus output DP-1
 # You can also configure each device individually.
 # Read `man 5 sway-input` for more information about this section.
 
+# laptop keyboard configuration
+input 1:1:AT_Translated_Set_2_keyboard {
+    # I use keyboard firmware on the desktop
+    xkb_options caps:swapescape
+}
+
 ### Key bindings
 #
 # Basics:
