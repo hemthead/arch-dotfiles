@@ -19,8 +19,8 @@ archinstall, would recommend.
 
 # Packages
 My major (and only) concern switching over from NixOS was how I was gonna keep track of my packages.
-The installs.txt file is my current solution. I've tried to keep track of every manually installed
-package so far (official packages, I won't include AUR in this list).
+The `.config/config-data/installs.txt` file is my current solution. I've tried to keep track of
+every manually installed package so far (official packages, I won't include AUR in this list).
 
 The goal here is that you'll be able to quickly install every package (either manually or through
 some fancy command engineering) and get a pretty decent representation of all the packages I use.
@@ -36,8 +36,8 @@ Additional packages that I consider important are listed in additional.txt. Thes
 considered strictly necessary for a reproduced install. Some of the packages may require special
 pacman configuration such as multilib (Steam as of now).
 
-Run `# pacman -Syu $(cat installs.txt)` to install all the packages listed; run again with
-installs.txt replaced by additional.txt if you want the additional packages as well. 
+Run `# pacman -Syu $(cat .config/config-data/installs.txt)` to install all the packages listed; run
+again with `installs.txt` replaced by `additional.txt` if you want the additional packages as well. 
 
 At some point in this process, you'll run into packages that make you choose a dependency that works
 for your system. This config does not install those for you, I don't know your system.

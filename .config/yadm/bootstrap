@@ -2,6 +2,7 @@
 echo
 
 config_home=${XDG_CONFIG_HOME:-"$HOME/.config"}
+DATA_DIR="$HOME/.config/config-data"
 
 # I call this "Not Being Lazy"
 echo "You aren't allowed to bootstrap until you've checked the file!"
@@ -28,7 +29,7 @@ yes_or_no() {
 cd "$HOME"
 
 if yes_or_no "Install programs in installs.txt?"; then
-	sudo pacman -Syu $(cat installs.txt);
+	sudo pacman -Syu $(cat $DATA_DIR/installs.txt);
 fi
 echo
 
@@ -48,7 +49,7 @@ echo "Services:"
 
 if yes_or_no "Enable greetd to autostart sway?"; then
 	sudo systemctl enable greetd.service
-	sudo cp -r ~/.root-config/etc/greetd /etc/
+	sudo cp -r $DATA_DIR/root/etc/greetd /etc/
 fi
 
 if yes_or_no "Enable sshd?"; then
@@ -64,10 +65,10 @@ if yes_or_no "Configure ufw? (my setup, beware)"; then
 	sudo ufw allow from 192.168.0.0/24
 	# ssh
 	sudo ufw limit ssh
-	sudo cp -r ~/.root-config/etc/ufw/applications.d/kdeconnect /etc/ufw/applications.d/
+	sudo cp -r $DATA_DIR/root/etc/ufw/applications.d/kdeconnect /etc/ufw/applications.d/
 	sudo ufw allow kdeconnect
 
-	sudo cp -r ~/.root-config/etc/ufw/applications.d/teamspeak3 /etc/ufw/applications.d/
+	sudo cp -r $DATA_DIR/root/etc/ufw/applications.d/teamspeak3 /etc/ufw/applications.d/
 
 	sudo ufw enable
 	sudo ufw status
@@ -84,7 +85,7 @@ if yes_or_no "Install oh-my-zsh?"; then
 fi
 echo
 
-echo "You must reboot for changes to take effect."
+echo "You must reboot for (some) changes to take effect."
 if yes_or_no "Reboot now?"; then
 	reboot
 fi

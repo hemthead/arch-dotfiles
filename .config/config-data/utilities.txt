@@ -1,0 +1,2 @@
+brasero - CD/DVD burner
+copyparty - file server
