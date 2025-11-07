@@ -13,11 +13,18 @@ missing_format = ""
 
 [[block]]
 block = "memory"
-format = " Mem: $mem_used/$mem_total Swap: $swap_used/$swap_total "
+format = " Mem: $mem_used/$mem_total "
+format_alt = " Swap: $swap_used/$swap_total "
 
 [[block]]
 block = "cpu"
-format = " CPU: $utilization $barchart "
+format = " CPU: $utilization "
+format_alt = " CPU: $barchart "
+
+[[block]]
+block = "amd_gpu"
+format = " GPU: $utilization |"
+format_alt = " GPU Mem: ($vram_used/$vram_total) |"
 
 [[block]]
 block = "battery"
@@ -41,7 +48,8 @@ format = " $ssid $signal_strength "
 
 [[block]]
 block = "time"
-format = " $timestamp.datetime(f:'%I:%M%P — %a — %d %b %Y') "
+#format = " $timestamp.datetime(f:'%I:%M%P — %a — %d %b %Y') "
+format = " $timestamp.datetime(f:'%I:%M%P %a %d') "
 interval = 60
 
 [icons]
