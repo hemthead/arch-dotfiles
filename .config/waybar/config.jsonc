@@ -1,0 +1,137 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "expand-center": false,
+    "fixed-center": false,
+
+    "modules-left": [
+        "sway/workspaces", 
+        "sway/mode"
+    ],
+    "modules-center": [
+        "sway/window"
+    ],
+    "modules-right": [
+        "idle_inhibitor",
+        "pulseaudio",
+        "backlight",
+        "battery",
+        "memory",
+        "cpu",
+        "disk",
+        "network",
+        "clock",
+        "tray"
+    ],
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        //"all-outputs": true,
+        "all-outputs": false,
+        "format": "{name}"
+    },
+
+    "sway/mode": {
+        "format": "{}"
+    },
+
+    "pulseaudio": {
+        "format": "Vol: {volume}%",
+        "format-muted": "Vol: muted",
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "0-0",
+            "deactivated": "-_-"
+        },
+        "tooltip": true
+    },
+
+    "backlight": {
+        "format": "Light: {percent}%",
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-"
+    },
+
+    "memory": {
+        "interval": 1,
+        "format": "Mem: {used:0.0f}/{total:0.0f}GB",
+        "tooltip-format": "Swap: {swapUsed:0.0f}/{swapTotal:0.0f}GB"
+    },
+
+    "cpu": {
+        "format": "CPU: {usage}%",
+        "tooltip": true,
+        "interval": 5,
+        "states": {
+            "info": 30,
+            "warning": 60,
+            "critical": 90
+        },
+    },
+
+    "battery": {
+        "states": {
+            "full": 95,
+            "good": 75,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "Bat: {capacity}%",
+        "format-charging": "Charging: {capacity}%",
+        "format-alt": "Bat: {time}",
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+    },
+
+    "disk": {
+        "format": "Disk: {percentage_used}%",
+        "path": "/",
+    },
+
+    "network": {
+        "format-wifi": "{essid} {signalStrength}%",
+        "format-ethernet": "{ifname}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format": "{ifname}: {ipaddr}",
+    },
+
+    "clock": {
+        "format": "{:%I:%M%p %a %d}",
+        "format-alt": "{:%Y-%m-%d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "month",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "on-click-right": "mode",
+            "format": {
+                "months":     "<span color='#d3c6aa'><b>{}</b></span>",
+                "days":       "<span color='#e67e80'>{}</span>",
+                "weeks":      "<span color='#a7c080'><b>W{}</b></span>",
+                "weekdays":   "<span color='#7fbbb3'><b>{}</b></span>",
+                "today":      "<span color='#dbbc7f'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 5
+    }
+}

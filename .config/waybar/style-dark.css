@@ -1,0 +1,13 @@
+@define-color red #900000;
+@define-color yellow #B58900;
+@define-color green #009000;
+@define-color purple #A020F0;
+
+@define-color grey1 #222222;
+@define-color grey2 #333333;
+@define-color grey3 #5F676A;
+
+@define-color foreground #FFFFFF;
+@define-color background #111111;
+
+@import "common.css";

@@ -1,0 +1,247 @@
+@define-color urgent @red;
+@define-color warning @yellow;
+@define-color good @green;
+
+@define-color workspaces-fg @foreground;
+@define-color workspaces-bg @grey1;
+@define-color workspaces-border @grey2;
+
+@define-color workspaces-visible-fg @workspaces-fg;
+@define-color workspaces-visible-bg @grey3;
+@define-color workspaces-visible-border @workspaces-border;
+
+@define-color workspaces-focused-bg @purple;
+@define-color workspaces-focused-fg @workspaces-fg;
+@define-color workspaces-focused-border @workspaces-border;
+
+@define-color workspaces-urgent-bg @urgent;
+@define-color workspaces-urgent-fg @workspaces-fg;
+@define-color workspaces-urgent-border @workspaces-border;
+
+@define-color mode-fg @foreground;
+@define-color mode-bg @urgent;
+@define-color mode-border @workspaces-border;
+
+@define-color pulseaudio-fg @foreground;
+@define-color pulseaudio-bg @background;
+@define-color pulseaudio-muted-fg @pulseaudio-fg;
+@define-color pulseaudio-muted-bg @warning;
+
+@define-color idle-inhibitor-fg @foreground;
+@define-color idle-inhibitor-bg @background;
+@define-color idle-inhibitor-active-fg @idle-inhibitor-fg;
+@define-color idle-inhibitor-active-bg @warning;
+
+@define-color memory-fg @foreground;
+@define-color memory-bg @background;
+@define-color memory-warning-fg @memory-fg;
+@define-color memory-warning-bg @warning;
+@define-color memory-critical-fg @memory-fg;
+@define-color memory-critical-bg @urgent;
+
+@define-color cpu-fg @foreground;
+@define-color cpu-bg @background;
+@define-color cpu-warning-fg @cpu-fg;
+@define-color cpu-warning-bg @warning;
+@define-color cpu-critical-fg @cpu-fg;
+@define-color cpu-critical-bg @urgent;
+
+@define-color disk-fg @foreground;
+@define-color disk-bg @background;
+
+@define-color network-fg @foreground;
+@define-color network-bg @background;
+
+@define-color clock-fg @foreground;
+@define-color clock-bg @background;
+
+@define-color tray-bg @background;
+
+@define-color backlight-fg @foreground;
+@define-color backlight-bg @background;
+
+@define-color network-fg @foreground;
+@define-color network-bg @background;
+@define-color network-disconnected-fg @network-fg;
+@define-color network-disconnected-bg @urgent;
+
+@define-color battery-fg @foreground;
+@define-color battery-bg @background;
+@define-color battery-charging-fg @battery-fg;
+@define-color battery-charging-bg @good;
+@define-color battery-warning-fg @battery-fg;
+@define-color battery-warning-bg @warning;
+@define-color battery-critical-fg @battery-fg;
+@define-color battery-critical-bg @urgent;
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Hack Nerd Font";
+    font-size: 12px;
+    min-height: 0;
+    min-width: 0;
+    margin: 0;
+}
+
+button:hover {
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    transition: none;
+}
+
+window#waybar, .modules-right, .modules-center, .modules-left {
+    background-color: @background;
+    color: @foreground;
+    border-top: 2px outset @workspaces-border;
+    border-bottom: 2px outset @workspaces-border;
+}
+
+.modules-left {
+    border-left: 2px outset @workspaces-border;
+}
+.modules-right {
+    border-right: 2px outset @workspaces-border;
+}
+
+.module {
+    padding: 0 1em;
+    margin: 0;
+    background-color: transparent;
+}
+
+.modules-right .module {
+    border-left: 3px ridge @workspaces-border;
+}
+
+#workspaces {
+    padding: 0;
+}
+#workspaces button {
+    padding: 0 0.5em;
+    margin: 0;
+    background-color: @workspaces-bg;
+    color: @workspaces-fg;
+    border: 2px outset @workspaces-border;
+}
+#workspaces button:hover {
+    border-style: inset;
+}
+#workspaces button.visible {
+    border: 2px inset @workspaces-visible-border;
+    color: @workspaces-visible-fg;
+    background-color: @workspaces-visible-bg;
+}
+#workspaces button.focused {
+    border: 2px inset @workspaces-focused-border;
+    color: @workspaces-focused-fg;
+    background-color: @workspaces-focused-bg;
+}
+#workspaces button.urgent {
+    /*border: 2px outset @workspaces-border;*/
+    border-color: @workspaces-urgent-border;
+    color: @workspaces-urgent-fg;
+    background-color: @workspaces-urgent-bg;
+}
+
+#mode {
+    padding: 0 0.5em;
+    margin: 0;
+    color: @mode-fg;
+    background-color: @mode-bg;
+}
+
+#pulseaudio {
+    color: @pulseaudio-fg;
+    background-color: @pulseaudio-bg;
+}
+#pulseaudio.muted {
+    color: @pulseaudio-muted-fg;
+    background-color: @pulseaudio-muted-bg;
+}
+
+#idle_inhibitor {
+    color: @idle-inhibitor-fg;
+    background-color: @idle-inhibitor-bg;
+}
+#idle_inhibitor.activated {
+    color: @idle-inhibitor-active-fg;
+    background-color: @idle-inhibitor-active-bg;
+}
+
+#backlight {
+    color: @backlight-fg;
+    background-color: @backlight-bg;
+}
+
+#memory {
+    color: @memory-fg;
+    background-color: @memory-bg;
+}
+#memory.warning {
+    color: @memory-warning-fg;
+    background-color: @memory-warning-bg;
+}
+#memory.critical {
+    color: @memory-critical-fg;
+    background-color: @memory-critical-bg;
+}
+
+#cpu {
+    color: @cpu-fg;
+    background-color: @cpu-bg;
+}
+#cpu.warning {
+    color: @cpu-warning-fg;
+    background-color: @cpu-warning-bg;
+}
+#cpu.critical {
+    color: @cpu-critical-fg;
+    background-color: @cpu-critical-bg;
+}
+
+#battery {
+    color: @battery-fg;
+    background-color: @battery-bg;
+}
+#battery.charging, #battery.plugged {
+    color: @battery-charging-fg;
+    background-color: @battery-charging-bg;
+}
+#battery.warning:not(.charging) {
+    color: @battery-warning-fg;
+    background-color: @battery-warning-bg;
+}
+#battery.critical:not(.charging) {
+    color: @battery-critical-fg;
+    background-color: @battery-critical-bg;
+}
+
+#disk {
+    color: @disk-fg;
+    background-color: @disk-bg;
+}
+
+#network {
+    color: @network-fg;
+    background-color: @network-bg;
+}
+#network.disconnected {
+    color: @network-disconnected-fg;
+    background-color: @network-disconnected-bg;
+}
+
+#clock {
+    color: @clock-fg;
+    background-color: @clock-bg;
+}
+
+/*
+#tray {
+    background-color: @tray-bg;
+    padding: 0 10px;
+    margin: 0 2px;
+}
+*/
+

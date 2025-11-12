@@ -50,6 +50,7 @@ thunar-volman
 thunar-archive-plugin
 thunar-media-tags-plugin
 engrampa
+pavucontrol
 
 firefox
 thunderbird
