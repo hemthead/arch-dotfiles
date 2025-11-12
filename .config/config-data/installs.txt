@@ -35,7 +35,7 @@ mako
 ghostty
 xdg-desktop-portal-wlr
 xdg-desktop-portal-gtk
-swaybg
+swww
 wmenu
 sway-contrib
 xorg-xwayland

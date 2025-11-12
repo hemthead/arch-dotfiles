@@ -229,31 +229,9 @@ client.focused  $color1 $color0     $color3 $color2     $color0
 
 gaps inner 10
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
 bar {
     swaybar_command waybar
 }
-#bar {
-#    position bottom
-#
-#    font pango:monospace 8
-#
-#    # When the status_command prints a new line to stdout, swaybar updates.
-#    # The default just shows the current date and time.
-#    #status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-#    status_command i3status-rs 2> /tmp/i3status-rs.log
-#    #swaybar_command waybar
-#
-#    colors {
-#        #statusline #ffffff
-#        #background #000000
-#        #inactive_workspace #32323200 #32323200 #5c5c5c
-#        focused_workspace $color1 $color0 $color3
-#    }
-#}
 
 # make godot windows open floating (godot likes to use many windows for menues)
 for_window [class="Godot"] floating enable
@@ -265,6 +243,7 @@ exec swayidle -w \
     before-sleep 'loginctl lock-session; playerctl pause' \
     lock 'swaylock -f; sleep 1'
 
+exec swww-daemon
 exec ~/.config/config-data/scripts/set-background
 
 include /etc/sway/config.d/*
