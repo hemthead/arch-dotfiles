@@ -133,7 +133,7 @@ window#waybar, .modules-right, .modules-center, .modules-left {
     color: @workspaces-visible-fg;
     background-color: @workspaces-visible-bg;
 }
-#workspaces button.focused {
+#workspaces button.focused, #workspaces button.active {
     border: 2px inset @workspaces-focused-border;
     color: @workspaces-focused-fg;
     background-color: @workspaces-focused-bg;
