@@ -1,0 +1,14 @@
+        41ms [INFO]  BumpPool with: 1 buffers. Size: 8100Kb
+        46ms [INFO]  BumpPool with: 1 buffers. Size: 8100Kb
+     13605ms [INFO]  BumpPool with: 1 buffers. Size: 8100Kb
+     13608ms [INFO]  BumpPool with: 1 buffers. Size: 8100Kb
+     13638ms [INFO]  BumpPool with: 2 buffers. Size: 16200Kb
+     13644ms [INFO]  BumpPool with: 2 buffers. Size: 16200Kb
+     24795ms [INFO]  Removed socket at "/run/user/1000/wayland-1-swww-daemon..sock"
+     24795ms [INFO]  Goodbye!
+        44ms [INFO]  BumpPool with: 1 buffers. Size: 8100Kb
+        48ms [INFO]  BumpPool with: 1 buffers. Size: 8100Kb
+    135343ms [INFO]  BumpPool with: 1 buffers. Size: 8100Kb
+    135346ms [INFO]  BumpPool with: 1 buffers. Size: 8100Kb
+    135376ms [INFO]  BumpPool with: 2 buffers. Size: 16200Kb
+    135382ms [INFO]  BumpPool with: 2 buffers. Size: 16200Kb
