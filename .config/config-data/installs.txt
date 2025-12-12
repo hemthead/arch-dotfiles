@@ -20,6 +20,7 @@ ufw
 hyperfine
 gnome-keyring
 age
+inetutils
 
 ttf-dejavu
 ttf-hack-nerd
@@ -30,6 +31,7 @@ i3status-rust
 waybar
 grim
 polkit
+lxqt-policykit
 libpulse
 mako
 ghostty

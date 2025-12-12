@@ -61,17 +61,16 @@ if yes_or_no "Configure ufw? (my setup, beware)"; then
 	sudo systemctl enable ufw.service
 	sudo ufw default deny
 
-	# open lan
-	sudo ufw allow from 192.168.0.0/24
-	# ssh
-	sudo ufw limit ssh
-	sudo cp -r $DATA_DIR/root/etc/ufw/applications.d/kdeconnect /etc/ufw/applications.d/
-	sudo ufw allow kdeconnect
+	# copy custom applications in
+	sudo cp -r $DATA_DIR/root/etc/ufw/applications.d /etc/ufw/
 
-	sudo cp -r $DATA_DIR/root/etc/ufw/applications.d/teamspeak3 /etc/ufw/applications.d/
+	sudo ufw allow from 192.168.0.0/24
+	sudo ufw limit ssh
+	sudo ufw allow kdeconnect
+	sudo ufw allow galene
 
 	sudo ufw enable
-	sudo ufw status
+	sudo ufw status # display to user
 fi
 
 if yes_or_no "Set default shell to zsh?"; then

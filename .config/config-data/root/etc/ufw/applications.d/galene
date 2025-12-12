@@ -1,0 +1,4 @@
+[galene]
+title=Galene
+description=Galene WebRTC server
+ports=8443,1194/tcp|1194,10000:40000/udp
