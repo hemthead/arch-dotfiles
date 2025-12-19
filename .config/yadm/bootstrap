@@ -33,6 +33,11 @@ if yes_or_no "Install programs in installs.txt?"; then
 fi
 echo
 
+if yes_or_no "Copy /etc configuration?"; then
+	sudo cp -r $DATA_DIR/root/etc /
+fi
+echo
+
 # You can't do this unless you're me, on account of it's my encrypted data, so I'd advise declining
 if yes_or_no "Decrypt files? (Only works if you're me)"; then
 	yadm decrypt
@@ -49,7 +54,6 @@ echo "Services:"
 
 if yes_or_no "Enable greetd to autostart sway?"; then
 	sudo systemctl enable greetd.service
-	sudo cp -r $DATA_DIR/root/etc/greetd /etc/
 fi
 
 if yes_or_no "Enable sshd?"; then
@@ -61,11 +65,8 @@ if yes_or_no "Configure ufw? (my setup, beware)"; then
 	sudo systemctl enable ufw.service
 	sudo ufw default deny
 
-	# copy custom applications in
-	sudo cp -r $DATA_DIR/root/etc/ufw/applications.d /etc/ufw/
-
 	sudo ufw allow from 192.168.0.0/24
-	sudo ufw limit ssh
+	sudo ufw allow ssh
 	sudo ufw allow kdeconnect
 	sudo ufw allow galene
 
