@@ -65,7 +65,7 @@ if yes_or_no "Configure ufw? (my setup, beware)"; then
 	sudo systemctl enable ufw.service
 	sudo ufw default deny
 
-	sudo ufw allow from 192.168.0.0/24
+	sudo ufw allow from 192.168.1.0/24
 	sudo ufw allow ssh
 	sudo ufw allow kdeconnect
 	sudo ufw allow galene
