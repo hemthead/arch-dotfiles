@@ -36,8 +36,8 @@ set $menu wmenu-run
 set $monitor_main   'Hewlett Packard HP E222 CNK7150YQT'
 set $monitor_second 'Hewlett Packard HP E222 CNK6250Q5S'
 
-output $monitor_main   resolution 1920x1080 position 0     0
-output $monitor_second resolution 1920x1080 position -1920 0
+output $monitor_main   resolution 1920x1080 position 1920 0
+output $monitor_second resolution 1920x1080 position 0    0
 
 workspace 1  output $monitor_main
 workspace 10 output $monitor_second
