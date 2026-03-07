@@ -251,5 +251,16 @@ exec swww-daemon
 exec ~/.config/config-data/scripts/set-background
 
 exec lxqt-policykit-agent
+exec /lib/geoclue-2.0/demos/agent
+
+# background apps that I'll forget otherwise
+exec gammastep-indicator
+exec kdeconnect-indicator
+
+# basic startup apps
+exec swaymsg "workspace 10; exec thunderbird"
+exec swaymsg "workspace 10; exec discord"
+exec swaymsg "workspace 10; exec signal-desktop"
+exec swaymsg "workspace 10; exec zen-browser"
 
 include /etc/sway/config.d/*
