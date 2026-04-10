@@ -3,7 +3,7 @@
 #while true; do
     # pick a background from the backgrounds directory  and set it
     background="$(fd . ~/Pictures/backgrounds | sort -R | tail -1)"
-    swww img "$background"
+    awww img "$background"
 
 #    sleep 300
 #done

@@ -103,7 +103,16 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Enable vim mode
+# Enable vim mode outside of neovim
+if [[ -n $NVIM ]]; then
+  # We're already in neovim, this just gets too confusing
+  # I usually just start a tmux session if I'm doing anything more than
+  # something simple
+else
+  bindkey -v
+fi
+
+# just keep vim mode always on (trying this out)
 bindkey -v
 
 fastfetch

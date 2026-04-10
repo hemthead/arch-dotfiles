@@ -239,6 +239,7 @@ bar {
 # make godot windows open floating (godot likes to use many windows for menues)
 for_window [class="Godot"] floating enable
 for_window [app_id="lxqt-policykit-agent"] floating enable
+for_window [class="lsp-plugins"] floating enable
 
 exec swayidle -w \
     timeout 600 'swaymsg "output * dpms off"' \
@@ -247,7 +248,7 @@ exec swayidle -w \
     before-sleep 'loginctl lock-session; playerctl pause' \
     lock 'swaylock -f; sleep 1'
 
-exec swww-daemon
+exec awww-daemon
 exec ~/.config/config-data/scripts/set-background
 
 exec lxqt-policykit-agent
