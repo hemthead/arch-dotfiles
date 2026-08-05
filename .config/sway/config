@@ -4,7 +4,7 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-font pango:Hack Nerd Font 8
+font pango:Hack Nerd Font 11
 focus_wrapping no
 focus_follows_mouse no
 mouse_warping none
@@ -21,7 +21,7 @@ set $right l
 # Your preferred terminal emulator
 set $term foot
 # Your preferred application launcher
-set $menu wmenu-run
+set $menu wmenu-run -f "Hack Nerd Font 13"
 
 ### Output configuration
 #
@@ -33,11 +33,9 @@ set $menu wmenu-run
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-set $monitor_main   'Hewlett Packard HP E222 CNK7150YQT'
-set $monitor_second 'Hewlett Packard HP E222 CNK6250Q5S'
+set $monitor_main   'AU Optronics 0x403D Unknown'
 
-output $monitor_main   resolution 1920x1080 position 1920 0
-output $monitor_second resolution 1920x1080 position 0    0
+output $monitor_main   resolution 1920x1080 position 0 0
 
 workspace 1  output $monitor_main
 workspace 10 output $monitor_second
@@ -46,6 +44,9 @@ exec swaymsg focus output $monitor_main
 # laptop keyboard configuration
 input 1:1:AT_Translated_Set_2_keyboard {
     # I use keyboard firmware on the desktop
+    xkb_options caps:swapescape
+}
+input 1133:45943:Pebble_K380s {
     xkb_options caps:swapescape
 }
 
@@ -187,26 +188,26 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# mode "exit: [l]ogout, [r]eboot, [s]hutdown, s[u]spend, [h]ibernate, loc[k]" {
-#   bindsym Escape mode default
-#   bindsym Return mode default
-#   bindsym h exec systemctl hibernate; mode default
-#   bindsym k exec swaylock; mode default
-#   bindsym l exec swaymsg exit
-#   bindsym r exec reboot
-#   bindsym s exec shutdown now
-#   bindsym u exec systemctl suspend; mode default
-# }
 mode "exit: [l]ogout, [r]eboot, [s]hutdown, s[u]spend, [h]ibernate, loc[k]" {
   bindsym Escape mode default
   bindsym Return mode default
-  bindsym h exec loginctl hibernate; mode default
+  bindsym h exec systemctl hibernate; mode default
   bindsym k exec swaylock; mode default
   bindsym l exec swaymsg exit
-  bindsym r exec loginctl reboot
-  bindsym s exec loginctl poweroff
-  bindsym u exec loginctl suspend; mode default
+  bindsym r exec reboot
+  bindsym s exec shutdown now
+  bindsym u exec systemctl suspend; mode default
 }
+# mode "exit: [l]ogout, [r]eboot, [s]hutdown, s[u]spend, [h]ibernate, loc[k]" {
+#   bindsym Escape mode default
+#   bindsym Return mode default
+#   bindsym h exec loginctl hibernate; mode default
+#   bindsym k exec swaylock; mode default
+#   bindsym l exec swaymsg exit
+#   bindsym r exec loginctl reboot
+#   bindsym s exec loginctl poweroff
+#   bindsym u exec loginctl suspend; mode default
+# }
 bindsym $mod+x mode "exit: [l]ogout, [r]eboot, [s]hutdown, s[u]spend, [h]ibernate, loc[k]"
 
 
