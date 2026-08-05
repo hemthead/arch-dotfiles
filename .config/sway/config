@@ -19,7 +19,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term ghostty
+set $term foot
 # Your preferred application launcher
 set $menu wmenu-run
 
@@ -187,18 +187,28 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# mode "exit: [l]ogout, [r]eboot, [s]hutdown, s[u]spend, [h]ibernate, loc[k]" {
+#   bindsym Escape mode default
+#   bindsym Return mode default
+#   bindsym h exec systemctl hibernate; mode default
+#   bindsym k exec swaylock; mode default
+#   bindsym l exec swaymsg exit
+#   bindsym r exec reboot
+#   bindsym s exec shutdown now
+#   bindsym u exec systemctl suspend; mode default
+# }
 mode "exit: [l]ogout, [r]eboot, [s]hutdown, s[u]spend, [h]ibernate, loc[k]" {
   bindsym Escape mode default
   bindsym Return mode default
-  bindsym h exec systemctl hibernate; mode default
+  bindsym h exec loginctl hibernate; mode default
   bindsym k exec swaylock; mode default
   bindsym l exec swaymsg exit
-  bindsym r exec reboot
-  bindsym s exec shutdown now
-  bindsym u exec systemctl suspend; mode default
+  bindsym r exec loginctl reboot
+  bindsym s exec loginctl poweroff
+  bindsym u exec loginctl suspend; mode default
 }
 bindsym $mod+x mode "exit: [l]ogout, [r]eboot, [s]hutdown, s[u]spend, [h]ibernate, loc[k]"
- 
+
 
 #
 # Utilities:
@@ -208,6 +218,14 @@ bindsym $mod+x mode "exit: [l]ogout, [r]eboot, [s]hutdown, s[u]spend, [h]ibernat
     bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
     bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
     bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+
+    # Special keys to control media via playerctl
+    bindsym --locked XF86AudioPlay exec playerctl play-pause
+    bindsym --locked XF86AudioPause exec playerctl play-pause
+    bindsym --locked XF86AudioPrev exec playerctl previous
+    bindsym --locked XF86AudioNext exec playerctl next
+    bindsym --locked XF86AudioStop exec playerctl stop
+
     # Special keys to adjust brightness via brightnessctl
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
@@ -240,19 +258,26 @@ bar {
 for_window [class="Godot"] floating enable
 for_window [app_id="lxqt-policykit-agent"] floating enable
 for_window [class="lsp-plugins"] floating enable
+for_window [app_id="org.kde.kdenlive"] floating enable
+for_window [app_id="org.kde.kdeconnect.handler"] floating enable
+for_window [app_id="org.kde.kdeconnect.daemon"] floating enable
 
 exec swayidle -w \
     timeout 600 'swaymsg "output * dpms off"' \
         resume 'swaymsg "output * dpms on"' \
-    timeout 900 'systemctl suspend' \
+    timeout 900 'loginctl suspend' \
     before-sleep 'loginctl lock-session; playerctl pause' \
     lock 'swaylock -f; sleep 1'
+
+exec pipewire
+exec mako # <- void needs this for some reason
 
 exec awww-daemon
 exec ~/.config/config-data/scripts/set-background
 
 exec lxqt-policykit-agent
-exec /lib/geoclue-2.0/demos/agent
+exec /usr/libexec/geoclue-2.0/demos/agent
+exec kdeconnectd
 
 # background apps that I'll forget otherwise
 exec gammastep-indicator
@@ -260,8 +285,9 @@ exec kdeconnect-indicator
 
 # basic startup apps
 exec swaymsg "workspace 10; exec thunderbird"
-exec swaymsg "workspace 10; exec discord"
+#exec swaymsg "workspace 10; exec discord"
 exec swaymsg "workspace 10; exec signal-desktop"
-exec swaymsg "workspace 10; exec zen-browser"
+#exec swaymsg "workspace 10; exec zen-browser"
+exec swaymsg "workspace 10; exec firefox"
 
 include /etc/sway/config.d/*

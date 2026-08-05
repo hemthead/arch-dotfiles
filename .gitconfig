@@ -1,5 +1,5 @@
 [author]
-	name = "John Reed"
+	name = "June Reed"
 
 [commit]
 	gpgSign = true
@@ -31,5 +31,5 @@
 
 [user]
 	email = reallyjohnreed@gmail.com
-	name = John Reed
-	signingKey = "/home/johndr/.ssh/id_ed25519.pub"
+	name = June Reed
+	signingKey = "/home/june/.ssh/id_ed25519.pub"
